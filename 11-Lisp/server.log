@@ -1,0 +1,17 @@
+Server starting on port 5000
+Waiting for connection...
+Client connected.
+Received: SUM 1 2 3 4
+Response: 10
+Received: REVERSE hello-world
+Response:  dlrow-olleh
+Received: UPPER абвГД
+Response: АБВГД
+Received: LOWER TeSt
+Response: test
+Received: SUM 10 20 30
+Response: 60
+Received: QUIT
+Client requested QUIT
+Client disconnected.
+Waiting for connection...

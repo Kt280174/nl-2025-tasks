@@ -1,0 +1,7 @@
+Hello, you can contact me via:
+Email: john.doe@example.com
+Or support@example.org
+Phone numbers:
++1-202-555-0175
++84 912 345 678
+Thanks!

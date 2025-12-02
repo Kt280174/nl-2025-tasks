@@ -1,0 +1,30 @@
+# Level-2 DSL demo
+
+SET x 10
+SET y 2
+
+# compute (x + y) * 3
+PUSH x
+PUSH y
+ADD
+PUSH 3
+MUL
+PRINT
+
+# loop demo
+LOOP 3
+    PUSH x
+    PRINT
+END
+
+# if demo
+SET flag 0
+IF flag > 0
+    PUSH 999
+    PRINT
+END
+
+IF x > 5
+    PUSH 111
+    PRINT
+END
