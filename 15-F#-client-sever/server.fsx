@@ -11,22 +11,36 @@ printfn "Server started on port %d" port
 
 let logFile = "server_log.txt"
 
-let rec handleClient (stream: NetworkStream) =
+let handleClient (stream: NetworkStream) =
     let buffer = Array.zeroCreate<byte> 1024
-    let read = stream.Read(buffer, 0, buffer.Length)
+    let mutable connected = true
 
-    if read > 0 then
-        let msg = Encoding.UTF8.GetString(buffer, 0, read)
-        printfn "Logged: %s" msg
+    while connected do
+        try
+            let read = stream.Read(buffer, 0, buffer.Length)
 
-        File.AppendAllText(logFile, msg + Environment.NewLine)
+            if read = 0 then
+                // Client đóng kết nối đúng cách
+                connected <- false
+                printfn "Client disconnected."
+            else
+                let msg = Encoding.UTF8.GetString(buffer, 0, read)
+                printfn "Logged: %s" msg
 
-        let resp = Encoding.UTF8.GetBytes("OK")
-        stream.Write(resp, 0, resp.Length)
+                File.AppendAllText(logFile, msg + Environment.NewLine)
 
-        handleClient stream
-    else
-        printfn "Client disconnected."
+                // gửi phản hồi
+                let resp = Encoding.UTF8.GetBytes("OK")
+                stream.Write(resp, 0, resp.Length)
+
+        with
+        | :? IOException ->
+            // client đóng kết nối bất ngờ → không crash nữa
+            connected <- false
+            printfn "Client disconnected unexpectedly."
+        | :? SocketException as ex ->
+            connected <- false
+            printfn "Socket error: %s" ex.Message
 
 while true do
     let client = listener.AcceptTcpClient()

@@ -19,10 +19,15 @@ use stream = client.GetStream()
 let buffer = Array.zeroCreate<byte> 1024
 
 for line in lines do
-    let bytes = Encoding.UTF8.GetBytes(line)
+    // gửi thêm ký tự xuống dòng để server biết kết thúc message
+    let bytes = Encoding.UTF8.GetBytes(line + "\n")
     stream.Write(bytes, 0, bytes.Length)
     printfn "Sent: %s" line
 
+    // đọc phản hồi từ server
     let read = stream.Read(buffer, 0, buffer.Length)
     let resp = Encoding.UTF8.GetString(buffer, 0, read)
     printfn "Server: %s" resp
+
+printfn "Client finished sending all messages."
+client.Close()

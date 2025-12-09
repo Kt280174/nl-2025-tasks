@@ -1,9 +1,8 @@
 ;;;; server.lisp
 
-;; (load "server.lisp") rồi (start-server 5000)
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (ql:quickload :usocket))  ;; nếu dùng Quicklisp
+  (ql:quickload :usocket))  
 
 (defparameter *log-file* "server.log")
 
