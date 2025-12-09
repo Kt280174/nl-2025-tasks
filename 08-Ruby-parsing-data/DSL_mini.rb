@@ -10,10 +10,10 @@ end
 lines = File.read(FILENAME).lines
 
 stack = []
-vars = {}            # biến
-pc = 0               # program counter
-loop_stack = []      # vị trí LOOP và số lần chạy
-skip_mode = false    # dùng cho IF sai điều kiện
+vars = {}            
+pc = 0               
+loop_stack = []      
+skip_mode = false    
 skip_until_end = 0
 
 def get_value(vars, token)

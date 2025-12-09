@@ -45,7 +45,7 @@ void convertMarkdownToHtml(string inputPath, string outputPath)
     File outFile;
     outFile.open(outputPath, "w");
 
-    bool inList = false;
+    bool inList = false; 
 
     foreach (line; lines)
     {

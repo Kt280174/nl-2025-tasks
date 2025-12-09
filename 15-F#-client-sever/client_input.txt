@@ -1,0 +1,3 @@
+Hello server
+How a beautifuk day!
+F# is amazing!
