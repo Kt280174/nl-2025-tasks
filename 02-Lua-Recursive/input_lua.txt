@@ -1,7 +1,0 @@
-root
-  folderA
-    file1.txt
-    file2.txt
-  folderB
-    folderC
-      file3.txt

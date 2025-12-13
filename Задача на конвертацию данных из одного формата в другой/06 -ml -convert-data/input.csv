@@ -1,0 +1,4 @@
+﻿id:int,name:string,score:real
+1,Alice,8.5
+2,Bob,7.2
+3,Charlie,9.1

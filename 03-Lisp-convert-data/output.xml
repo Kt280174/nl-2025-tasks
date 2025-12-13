@@ -1,20 +1,0 @@
-<rows>
-  <row>
-    <﻿id>1</﻿id>
-    <name>Anna</name>
-    <age>20</age>
-    <email>anna@example.com</email>
-  </row>
-  <row>
-    <﻿id>2</﻿id>
-    <name>Bob</name>
-    <age>22</age>
-    <email>bob@example.com</email>
-  </row>
-  <row>
-    <﻿id>3</﻿id>
-    <name>Chris</name>
-    <age>19</age>
-    <email>chris@example.com</email>
-  </row>
-</rows>

@@ -1,4 +1,0 @@
-# name      interval_ms   pulses
-sensor_a    500           5
-sensor_b    800           3
-sensor_c    1200          4
